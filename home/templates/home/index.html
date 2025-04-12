@@ -1,12 +1,57 @@
-{% extends "base.html" %}
-{% load static %}
- {% block content %}
-<h2>Welcome to the Sanctum.</h2>
-<br />
-<p><a href="{% url "events:current" %}">Click here</a> for information on our 
-PvM events</p>
+{% extends "base.html" %} {% load static %} {% block content %}
+<section>
+  <h2>Welcome to Shadow Sanctum</h2>
+  <p>
+    Shadow Sanctum is a thriving RuneScape 3 clan where adventurers of all kinds
+    find their home. Whether you're a fresh account stepping into Gielinor for
+    the first time or a maxed veteran looking for chill vibes and fun events,
+    you're welcome here.
+  </p>
+</section>
 
-<img src="{% static "images/construction.gif" %}" alt="Under Construction">
-<p>If you find any trash, please do give it to Big Raccoon.</p>
+<section>
+  <h2>A Community That Feels Like Home</h2>
+  <p>
+    Our clan is more than just a name — it's a sanctuary. We pride ourselves on
+    being friendly, helpful, and inclusive. You'll always find someone to chat
+    with, ask questions, or just hang out while skilling, bossing, or questing.
+  </p>
+</section>
+
+<section>
+  <h2>Casual and Laid-Back</h2>
+  <p>
+    No pressure, no drama — just good times. We understand that life comes
+    first, and we welcome members who play at their own pace. Join in when you
+    want, take breaks when you need — Shadow Sanctum will be here for you.
+  </p>
+</section>
+
+<section>
+  <h2>All Levels and Account Types Welcome</h2>
+  <p>
+    Whether you're a main, ironman, hardcore, or skill pure, you're welcome
+    here. Our community thrives on diversity and support, and we love helping
+    new players grow just as much as we enjoy sharing achievements with
+    high-level members.
+  </p>
+</section>
+
+<section>
+  <h2>Non-Stop Events and Clan Parties</h2>
+  <p>
+    From skilling competitions and bossing trips to hide-and-seek, fashion
+    shows, and dance parties at the Clan Citadel, we host frequent events to
+    keep the fun rolling. There’s always something happening in the Sanctum.
+  </p>
+</section>
+
+<section>
+  <h2>Join the Shadow Sanctum Today</h2>
+  <p>
+    Ready to be part of something awesome? Send us a message in-game, or apply
+    via the clan system. Whether you're here for the camaraderie, the events, or
+    just a cool clan to call home — we've got a place for you.
+  </p>
+</section>
 {% endblock %}
-
