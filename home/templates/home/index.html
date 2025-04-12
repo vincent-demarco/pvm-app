@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+ {% block content %}
+<h2>Welcome to the Sanctum.</h2>
+<br />
+<p><a href="{% url "events:current" %}">Click here</a> for information on our 
+PvM events</p>
+
+<img src="{% static "images/construction.gif" %}" alt="Under Construction">
+{% endblock %}
+

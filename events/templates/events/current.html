@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+<h2>PvM Events</h2>
+<p>
+  Each month, Shadow Sanctum puts on a friendly PvM competition for our clan
+  members. You score points by attending one of the many PvM events we host
+  throughout the week. Points are awarded strictly for attendance, not
+  performance, so fr00bs are welcome to join in on the action! Clan guests may
+  join too, however points will only be awarded for active clan members.
+</p>
+<p>
+  At the end of each month, the three players with the highest point totals will
+  win a cash prize. The current prize list is as follows:
+</p>
+<ul>
+  <li>1st place: 100 million gp</li>
+  <li>2nd place: 40 million gp</li>
+  <li>3rd place: 20 million gp</li>
+</ul>
+<h3>Standings for {% now "F" %} {% now "Y" %}</h3>
+<table>
+  <tr>
+    <th>RuneScape Display Name</th>
+    <th>Points</th>
+  </tr>
+  {% for player, points in sorted_standings.items %}
+  <tr>
+    <td>{{player}}</td>
+    <td>{{points}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h3>Upcoming PvM Events</h3>
+<table>
+  <tr>
+    <th>Event Name</th>
+    <th>Event Date</th>
+    <th>Point Value</th>
+  </tr>
+  {% for event in event_list %}
+  <tr>
+    <td>{{ event.title }}</td>
+    <td>{{ event.date }}</td>
+    <td>{{ event.points }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

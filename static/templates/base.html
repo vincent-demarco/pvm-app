@@ -1,0 +1,18 @@
+{% load static %}
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <title>Shadow Sanctum</title>
+  </head>
+
+  <body>
+    <a href="{% url "home:index" %}"> <h1>Shadow Sanctum</h1></a>
+    <hr />
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>
