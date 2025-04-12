@@ -12,7 +12,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
+  /* background-color: #0d0d0d; */
+  background-color: rgb(24, 29, 39);
   color: #f2f2f2;
   padding: 20px;
   line-height: 1.6;
@@ -22,13 +23,13 @@ h1 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #9c27b0;
+  color: #00e5ff;
 }
 
 h2,
 h3 {
   text-align: center;
-  color: #ff9800;
+  color: #00e5ff;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -89,4 +90,52 @@ main {
 
 a {
   text-decoration: none;
+  color: #ff9800;
+}
+
+nav {
+  text-align: center;
+}
+
+.discord-invite-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid #7289da; /* Discord blurple */
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discord-invite-box h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.discord-invite-box p {
+  margin: 5px 0;
+}
+
+.discord-invite-box a {
+  color: #7289da;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.discord-invite-box a:hover {
+  text-decoration: underline;
+}
+
+.discord-invite-box img {
+  margin-left: 20px;
+}
+
+.discord-invite-link {
+  text-align: center;
+}
+
+.discord-invite-box p {
+  color: #444;
 }
