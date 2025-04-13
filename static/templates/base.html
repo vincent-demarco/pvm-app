@@ -22,12 +22,19 @@
   <body>
     <header>
       <a href="{% url "home:index" %}"> <h1>Shadow Sanctum</h1></a>
+      <p><em>A Runescape 3 Clan</em></p>
       <nav>
         <a href="{% url "home:index" %}">Home</a>
         <a href="{% url "events:current" %}">PvM Contest</a>
       </nav>
     </header>
+    <br />
     <hr />
     <main>{% block content %} {% endblock %}</main>
+    <footer>
+      <hr />
+      <br />
+      <p>&copy; 2025 Shadow Sanctum. All rights reserved.</p>
+    </footer>
   </body>
 </html>
