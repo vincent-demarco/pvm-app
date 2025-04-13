@@ -1,5 +1,5 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html>
   <head>
     <link
@@ -7,14 +7,24 @@
       type="text/css"
       href="{% static 'css/style.css' %}"
     />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+    <link rel="icon" type="image/x-icon" href={% static "images/favicon.ico" %} >
+    
     <title>Shadow Sanctum</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="runescape, clan, shadow, sanctum">
   </head>
 
   <body>
     <header>
       <a href="{% url "home:index" %}"> <h1>Shadow Sanctum</h1></a>
       <nav>
-        <a href="{% url "events:current" %}">PvM Events</a>
+        <a href="{% url "home:index" %}">Home</a>
+        <a href="{% url "events:current" %}">PvM Contest</a>
       </nav>
     </header>
     <hr />
