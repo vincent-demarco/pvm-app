@@ -32,7 +32,7 @@ def tally_points():
   return dict(sorted(standings_dict.items(), key=lambda item: item[1], reverse=True))
 
 def CurrentMonthView(request):
-  event_list = Event.objects.filter(completed=False)
+  event_list = Event.objects.filter(completed=False).order_by('date')
   return render(request, "events/current.html", {
     "event_list": event_list,
     "sorted_standings": tally_points(),
