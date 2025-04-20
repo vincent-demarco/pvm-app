@@ -1,19 +1,14 @@
 from datetime import date
 from django.db import models
 
-
-# Create your models here.
-
-# A model class represents a database table
-
 class ClanMember(models.Model):
-  name = models.CharField(max_length=20)
-  # current_points = models.IntegerField(default=0) 
-  # bonus_points = models.IntegerField(default=0) # For going above & beyond
-
+  name = models.CharField(max_length=20, unique=True)
 
   def __str__(self):
     return self.name
+  
+  class Meta:
+    ordering = ["name"]
   
 class Event(models.Model):
   title = models.CharField(max_length=50) # E.g. Graardor, Kerapac, KBD, etc
