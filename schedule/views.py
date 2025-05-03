@@ -13,15 +13,16 @@ categories = {
 }
 
 def get_calendar_data():
-  # A cron job is set up to run teamtest.py every day
-  # The results are stored in a file
-  # This function reads the results out of the file and formats it for the 
-  # view context.
-  # Load saved string from scheduled job
-  file_path = os.path.join(os.path.dirname(__file__), "calendar_response.json")
-  with open(file_path, "r") as f:
-      data = json.load(f)
+  # App Platform doesn't support cron jobs, so I'm running one on my personal
+  # site's server instead. It should execute every day as of May 3 2025, may 
+  # change it to something more regular in the future.
+  #
+  # This function pulls the json from my personal site and creates an array of
+  # event objects for the schedule.html template to display.
 
+  response = requests.get("https://josephdemarco.xyz/calendar_response.json")
+  data = response.json()
+  
   # Reencode the string to work with it as a JSON Object
   response_dict = json.loads(data)
 
