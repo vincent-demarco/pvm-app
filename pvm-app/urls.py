@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('pvm-events/', include("events.urls")),
     path('', include("home.urls")),
+    path('schedule/', include("schedule.urls")),
 ]

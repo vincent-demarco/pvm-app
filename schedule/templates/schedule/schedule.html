@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<h3>Upcoming Events</h3>
+<table>
+  <tr>
+    <th>Event Name</th>
+    <th>Event Start Date</th>
+    <th>Event End Date</th>
+    <th>Category</th>
+  </tr>
+  {% for event in calendar_list %}
+  <tr>
+    <td>{{ event.title }}</td>
+    <td>{{ event.start }}</td>
+    <td>{{ event.end }}</td>
+    <td>{{ event.category }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
