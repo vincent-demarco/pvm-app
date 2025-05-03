@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import os
 from django.shortcuts import render
@@ -36,22 +36,44 @@ def get_calendar_data():
   calendarEvents = []
 
   for event in response_dict.get("events", []):
+      # The TeamUp calendar is inputted in -11:00 (EST?) even though it's meant to 
+      # represent UTC, so we have to adjust the times by 7 hours. 
+      delta = timedelta(hours=7)
       title = event['title']
+      all_day = event['all_day']
+      print(all_day)
+      # ISO
       start = event['start_dt']
       end = event['end_dt']
       category = categories.get(event['subcalendar_id'], "Unknown")
 
-      # Convert 08-05-2023 18:00:00 format
-      start_dt = datetime.fromisoformat(start).strftime("%B %d %H:%M UTC")
-      end_dt = datetime.fromisoformat(end).strftime("%B %d %H:%M UTC")
+      # Datetime objects
+      # .strftime("%B %d %H:%M UTC")
+      start_dt = datetime.fromisoformat(start)
+      end_dt = datetime.fromisoformat(end)
+
+      # Formatted UTC
+      if not all_day:
+        # UTC datetime objects
+        start_utc = start_dt + delta
+        end_utc = end_dt + delta
+      else:
+        start_utc = start_dt
+        end_utc = end_dt
+
+      start_form = start_utc.strftime("%B %d %H:%M UTC")
+      end_form = end_utc.strftime("%B %d %H:%M UTC")
+
 
       # Create new event object
-      newEvent = CalendarEvent(title, start_dt, end_dt, category)
+      newEvent = CalendarEvent(title, start_form, end_form, category)
 
       # Add event to array. This should be the context for the calendar_view.
       calendarEvents.append(newEvent)
 
-  return calendarEvents
+  # Sort by start date
+  sortedCalendar = sorted(calendarEvents, key=lambda event: event.start)
+  return sortedCalendar
 
 def calendar_view(request):
   return render(request, "schedule/schedule.html", {
