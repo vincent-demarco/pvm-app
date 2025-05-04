@@ -41,7 +41,7 @@ def get_calendar_data():
       delta = timedelta(hours=7)
       title = event['title']
       all_day = event['all_day']
-      print(all_day)
+
       # ISO
       start = event['start_dt']
       end = event['end_dt']
@@ -52,15 +52,16 @@ def get_calendar_data():
       start_dt = datetime.fromisoformat(start)
       end_dt = datetime.fromisoformat(end)
 
-      # Formatted UTC
+      # "UTC datetime" objects. All day and normal aren't comparable after this step.
+      # Look into changing the timezone stamp instead. See Pages doc.
       if not all_day:
-        # UTC datetime objects
         start_utc = start_dt + delta
         end_utc = end_dt + delta
       else:
         start_utc = start_dt
         end_utc = end_dt
 
+      # String objects
       start_form = start_utc.strftime("%B %d %H:%M UTC")
       end_form = end_utc.strftime("%B %d %H:%M UTC")
 
@@ -71,7 +72,7 @@ def get_calendar_data():
       # Add event to array. This should be the context for the calendar_view.
       calendarEvents.append(newEvent)
 
-  # Sort by start date
+  # Sort by start date. String sort.
   sortedCalendar = sorted(calendarEvents, key=lambda event: event.start)
   return sortedCalendar
 

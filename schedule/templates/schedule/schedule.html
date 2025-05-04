@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 <h3>Upcoming Events</h3>
+<h4><em>This calendar updates every hour.</em></h4>
 <table>
   <tr>
     <th>Event Name</th>
@@ -12,7 +13,16 @@
     <td>{{ event.title }}</td>
     <td>{{ event.start }}</td>
     <td>{{ event.end }}</td>
-    <td>{{ event.category }}</td>
+    <td style=
+    {% if event.category == "PvM Event" %}
+      "color: green;"
+    {% elif event.category == "Minigames/D&D" %}
+      "color: red;"
+    {% elif event.category == "Clan Event" %}
+      "color: yellow;"
+    {% else %}
+      "color: pink;"
+    {% endif %}>{{ event.category }}</td>
   </tr>
   {% endfor %}
 </table>
