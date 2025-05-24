@@ -62,8 +62,8 @@ def get_calendar_data():
         end_utc = end_dt
 
       # String objects
-      start_form = start_utc.strftime("%B %d %H:%M UTC")
-      end_form = end_utc.strftime("%B %d %H:%M UTC")
+      start_form = start_utc.strftime("%B %d %H:%M")
+      end_form = end_utc.strftime("%B %d %H:%M")
 
 
       # Create new event object
@@ -72,8 +72,9 @@ def get_calendar_data():
       # Add event to array. This should be the context for the calendar_view.
       calendarEvents.append(newEvent)
 
-  # Sort by start date. String sort.
-  sortedCalendar = sorted(calendarEvents, key=lambda event: event.start)
+  # Sort by start date. Date sort. Hacky. Probably will stop working when 
+  # January events come up.
+  sortedCalendar = sorted(calendarEvents, key=lambda event: datetime.strptime(event.start, "%B %d %H:%M"))
   return sortedCalendar
 
 def calendar_view(request):
