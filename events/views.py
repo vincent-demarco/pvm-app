@@ -7,7 +7,7 @@ from .models import Event
 # Tally points for each player who has participated in this month's events.
 def tally_points():
   today = now()
-  current_month = today.month - 1
+  current_month = today.month
   current_year = today.year
 
   standings_dict = {}
